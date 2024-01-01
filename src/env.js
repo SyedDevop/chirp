@@ -7,12 +7,6 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
-    TURSO_URL: z
-      .string()
-      .refine(
-        (str) => !str.includes("YOUR_MYSQL_URL_HERE"),
-        "You forgot to change the default URL",
-      ),
     TURSO_AUTH_TOKEN: z
       .string()
       .refine(
