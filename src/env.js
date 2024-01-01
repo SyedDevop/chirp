@@ -11,13 +11,13 @@ export const env = createEnv({
       .string()
       .url()
       .refine(
-        (str) => !str.includes("TURSO_URL"),
+        (str) => !str.includes("YOUR_MYSQL_URL_HERE"),
         "You forgot to change the default URL",
       ),
     TURSO_AUTH_TOKEN: z
       .string()
       .refine(
-        (str) => !str.includes("TURSO_AUTH_TOKEN"),
+        (str) => !str.includes("YOUR_AUTH_TOKEN_HERE"),
         "You forgot to change the default auth token",
       ),
     NODE_ENV: z
@@ -39,7 +39,7 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    TURSO_URL: process.env.DATABASE_URL,
+    TURSO_URL: process.env.TURSO_URL,
     TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
     NODE_ENV: process.env.NODE_ENV,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
