@@ -7,10 +7,17 @@ export const env = createEnv({
    * isn't built with invalid env vars.
    */
   server: {
+    TURSO_URL: z
+      .string()
+      .url()
+      .refine(
+        (str) => !str.includes("TURSO_URL"),
+        "You forgot to change the default URL",
+      ),
     TURSO_AUTH_TOKEN: z
       .string()
       .refine(
-        (str) => !str.includes("YOUR_AUTH_TOKEN_HERE"),
+        (str) => !str.includes("TURSO_AUTH_TOKEN"),
         "You forgot to change the default auth token",
       ),
     NODE_ENV: z
